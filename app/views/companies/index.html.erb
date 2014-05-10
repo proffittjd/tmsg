@@ -1,0 +1,18 @@
+<h1>Company Listing</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  
+  <% @companies.each do |company| %>
+    <tr>
+      <td><%=link_to company.name, company %> </td>
+      <td><%= link_to 'Edit', edit_company_path(company) %></td>
+      <td><%= link_to 'Delete', company_path(company),
+          method: :delete, data: { confirm: 'Are You Sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New Company', new_company_path %>
